@@ -1,2 +1,2 @@
 INSERT INTO TestData(Text)
-VALUES (@text.NAM);
+VALUES (@text);
