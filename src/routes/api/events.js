@@ -16,8 +16,14 @@ module.exports.register = async (server) => {
           const { text } = request.payload;
           console.log(text);
 
+          function rowObj(NAM, Code, date) {
+            this.NAM = NAM;
+            this.Code = Code;
+          }
+          var obj = new rowObj(text.NAM, text.Code);
+
           // execute the query
-          const res = await db.events.getEvents(text.NAM);
+          const res = await db.events.getEvents(obj);
 
           // return the recordset object
           return "Record Inserted";
