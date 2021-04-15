@@ -17,7 +17,7 @@ module.exports.register = async (server) => {
           console.log(text);
 
           // execute the query
-          // const res = await db.events.getEvents(text);
+          const res = await db.events.getEvents(text);
 
           // return the recordset object
           return "Record Inserted";
