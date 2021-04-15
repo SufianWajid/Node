@@ -14,7 +14,7 @@ module.exports.register = async (server) => {
           // TODO: Get the current authenticate user's ID
           const Id = 1;
           const { text } = request.payload;
-          console.log(text);
+          console.log("New log" + text);
 
           // execute the query
           // const res = await db.events.getEvents(text);
