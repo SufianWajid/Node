@@ -1,5 +1,5 @@
-INSERT INTO TestData(Text,Audio,CreateDate,User_Name)
-VALUES (@text,@textCode,@date,@currentUser);
+-- INSERT INTO TestData(Text,Audio,CreateDate,User_Name)
+-- VALUES (@text,@textCode,@date,@currentUser);
 
 IF (NOT EXISTS(SELECT * FROM TestData WHERE Text=@text AND User_Name=@currentUser)) 
 BEGIN 
