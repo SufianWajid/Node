@@ -33,9 +33,15 @@ module.exports.register = async (server) => {
             return bytes.buffer;
           }
 
+          var audio64 = text.Code;
+          var audioBian = _base64ToArrayBuffer(text.Code);
+          if (audio64 == "0") {
+            audioBian = null;
+          }
+
           var obj = new rowObj(
             text.NAM,
-            _base64ToArrayBuffer(text.Code),
+            audioBian,
             text.date,
             text.currentUser
           );
