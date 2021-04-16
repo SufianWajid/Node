@@ -17,7 +17,7 @@ const register = async ({ sql, getConnection }) => {
     // configure sql query parameters
     request.input("text", sql.VarChar(50), text.NAM);
     request.input("textCode", sql.VarChar(MAX), text.Code);
-    request.input("date", sql.date, text.date);
+    request.input("date", sql.datetime, text.date);
 
     // return the executed query
     return request.query(sqlQueries.getEvents);
