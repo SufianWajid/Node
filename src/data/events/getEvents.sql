@@ -13,7 +13,7 @@
 -- WHERE Text=@text AND User_Name=@currentUser
 -- END 
 
-IF (NOT EXISTS(SELECT * FROM TestData WHERE SUBSTRING(Text, 1, 4)+SUBSTRING(Text, 6, 4)+SUBSTRING(Text, 11, 4)=SUBSTRING(@text, 1, 4)+SUBSTRING(@text, 6, 4)+SUBSTRING(@text, 11, 4) AND User_Name=@currentUser)) 
+IF (NOT EXISTS(SELECT * FROM TestData WHERE (SUBSTRING(Text, 1, 4)+SUBSTRING(Text, 6, 4)+SUBSTRING(Text, 11, 4)=SUBSTRING(@text, 1, 4)+SUBSTRING(@text, 6, 4)+SUBSTRING(@text, 11, 4) OR Text =@text) AND User_Name=@currentUser)) 
 BEGIN 
     INSERT INTO TestData(Text,CreateDate,User_Name) 
     VALUES (@text,@date,@currentUser)
@@ -22,5 +22,5 @@ ELSE
 BEGIN 
     UPDATE TestData 
 SET CreateDate=@date
-WHERE SUBSTRING(Text, 1, 4)+SUBSTRING(Text, 6, 4)+SUBSTRING(Text, 11, 4)=SUBSTRING(@text, 1, 4)+SUBSTRING(@text, 6, 4)+SUBSTRING(@text, 11, 4) AND User_Name=@currentUser
+WHERE (SUBSTRING(Text, 1, 4)+SUBSTRING(Text, 6, 4)+SUBSTRING(Text, 11, 4)=SUBSTRING(@text, 1, 4)+SUBSTRING(@text, 6, 4)+SUBSTRING(@text, 11, 4) OR Text=@text )AND User_Name=@currentUser
 END 
