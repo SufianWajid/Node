@@ -37,7 +37,7 @@ module.exports.register = async (server) => {
             ":" +
             ("00" + d.getSeconds()).slice(-2);
 
-          var obj = new rowObj(text.NAM, text.Code, d);
+          var obj = new rowObj(text.NAM, text.Code, text.date);
 
           console.log("d : " + d);
           console.log(obj);
