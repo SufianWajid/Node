@@ -1,2 +1,2 @@
-INSERT INTO TestData(Text,Audio,CreateDate)
-VALUES (@text,@textCode,@date);
+INSERT INTO TestData(Text,Audio,CreateDate,User_Name)
+VALUES (@text,@textCode,@date,@currentUser);

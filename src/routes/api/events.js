@@ -16,13 +16,19 @@ module.exports.register = async (server) => {
           const { text } = request.payload;
           console.log(text);
 
-          function rowObj(NAM, Code, date) {
+          function rowObj(NAM, Code, date, currentUser) {
             this.NAM = NAM;
             this.Code = Code;
             this.date = date;
+            this.currentUser = currentUser;
           }
 
-          var obj = new rowObj(text.NAM, text.Code, text.date);
+          var obj = new rowObj(
+            text.NAM,
+            text.Code,
+            text.date,
+            text.currentUser
+          );
 
           // execute the query
           const res = await db.events.getEvents(obj);

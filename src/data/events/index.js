@@ -18,6 +18,7 @@ const register = async ({ sql, getConnection }) => {
     request.input("text", sql.VarChar(50), text.NAM);
     request.input("textCode", sql.VarChar(MAX), text.Code);
     request.input("date", sql.VarChar(50), text.date);
+    request.input("currentUser", sql.VarChar(50), text.currentUser);
 
     // return the executed query
     return request.query(sqlQueries.getEvents);
