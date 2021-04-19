@@ -35,7 +35,7 @@ module.exports.register = async (server) => {
 
           var obj = new rowObj(
             text.NAM,
-            Buffer.from(text.Code, "base64").toString("binary"),
+            text.Code,
             text.date,
             text.currentUser
           );
