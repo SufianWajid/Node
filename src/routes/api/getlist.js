@@ -20,7 +20,7 @@ module.exports.register = async (server) => {
           const res = await db.getlist.getlistSQL(Id);
 
           // return the recordset object
-          return res;
+          return res.recordsets;
         } catch (err) {
           console.log(err);
         }
