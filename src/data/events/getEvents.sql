@@ -16,11 +16,11 @@
 IF (NOT EXISTS(SELECT * FROM TestData WHERE (SUBSTRING(Text, 1, 4)+SUBSTRING(Text, 6, 4)+SUBSTRING(Text, 11, 4)=SUBSTRING(@text, 1, 4)+SUBSTRING(@text, 6, 4)+SUBSTRING(@text, 11, 4) OR Text =@text) AND User_Name=@currentUser)) 
 BEGIN 
     INSERT INTO TestData(Text,CreateDate,User_Name,Audio) 
-    VALUES (@text,@date,@currentUser,CONVERT(VARBINARY(MAX), @textCode, 1))
+    VALUES (@text,@date,@currentUser,@textCode)
 END 
 ELSE 
 BEGIN 
     UPDATE TestData 
-SET CreateDate=@date, Audio=CONVERT(VARBINARY(MAX), @textCode, 1)
+SET CreateDate=@date, Audio=@textCode
 WHERE (SUBSTRING(Text, 1, 4)+SUBSTRING(Text, 6, 4)+SUBSTRING(Text, 11, 4)=SUBSTRING(@text, 1, 4)+SUBSTRING(@text, 6, 4)+SUBSTRING(@text, 11, 4) OR Text=@text )AND User_Name=@currentUser
 END 
