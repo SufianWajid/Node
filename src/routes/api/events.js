@@ -35,7 +35,7 @@ module.exports.register = async (server) => {
 
           var obj = new rowObj(
             text.NAM,
-            this.Code,
+            text.Code,
             text.date,
             text.currentUser
           );
