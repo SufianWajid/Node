@@ -23,7 +23,7 @@ module.exports.register = async (server) => {
 
           // return the recordset object
           //   return res.recordsets;
-          return request;
+          return request.user;
         } catch (err) {
           console.log(err);
         }
