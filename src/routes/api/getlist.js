@@ -13,8 +13,8 @@ module.exports.register = async (server) => {
 
           //   // TODO: Get the current authenticate user's ID
           const Id = "user100";
-
-          const { user } = request.params;
+          request.params = params(request);
+          var user = request.params.user;
           console.log("request : " + user);
 
           //   const { text } = request.payload;
