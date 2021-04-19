@@ -16,7 +16,7 @@ const register = async ({ sql, getConnection }) => {
 
     // configure sql query parameters
 
-    // request.input("currentUser", sql.VarChar(50), text.currentUser);
+    request.input("currentUser", sql.VarChar(50), text);
 
     // return the executed query
     return request.query(sqlQueries.getlistSQL);

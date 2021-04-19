@@ -12,12 +12,12 @@ module.exports.register = async (server) => {
           const db = request.server.plugins.sql.client;
 
           //   // TODO: Get the current authenticate user's ID
-          //   const Id = 1;
+          const Id = "user100";
           //   const { text } = request.payload;
           //   console.log(text);
 
           //   // execute the query
-          const res = await db.getlist.getlistSQL();
+          const res = await db.getlist.getlistSQL(Id);
 
           // return the recordset object
           return res;

@@ -4,3 +4,4 @@ SELECT TOP (1000) [Id]
       ,[User_Name]
       ,[CreateDate]
   FROM [ConcilConnectTest].[dbo].[TestData]
+  WHERE User_Name = @currentUser
