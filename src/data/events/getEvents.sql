@@ -13,20 +13,21 @@
 -- WHERE Text=@text AND User_Name=@currentUser
 -- END 
 
-declare @source varbinary(max), @encoded varchar(max), @decoded varbinary(max)
-set @source = convert(varbinary(max), @textCode)
-set @encoded = cast(‘’ as xml).value(‘xs:base64Binary(sql:variable(“@source”))’, ‘varchar(max)’)
-set @decoded = cast(‘’ as xml).value(‘xs:base64Binary(sql:variable(“@encoded”))’, ‘varbinary(max)’)
+Declare @str varchar(max) = @textCode;
+Declare @bin varbinary(max);
+set @bin= cast(N'' as xml).value('xs:base64Binary(sql:variable("@str"))', 'varbinary(max)');
+
 
 
 IF (NOT EXISTS(SELECT * FROM TestData WHERE (SUBSTRING(Text, 1, 4)+SUBSTRING(Text, 6, 4)+SUBSTRING(Text, 11, 4)=SUBSTRING(@text, 1, 4)+SUBSTRING(@text, 6, 4)+SUBSTRING(@text, 11, 4) OR Text =@text) AND User_Name=@currentUser)) 
 BEGIN 
     INSERT INTO TestData(Text,CreateDate,User_Name,Audio) 
-    VALUES (@text,@date,@currentUser,@decoded)
+    VALUES (@text,@date,@currentUser,@bin)
 END 
 ELSE 
 BEGIN 
     UPDATE TestData 
-SET CreateDate=@date, Audio=@decoded
+SET CreateDate=@date, Audio=@bin
 WHERE (SUBSTRING(Text, 1, 4)+SUBSTRING(Text, 6, 4)+SUBSTRING(Text, 11, 4)=SUBSTRING(@text, 1, 4)+SUBSTRING(@text, 6, 4)+SUBSTRING(@text, 11, 4) OR Text=@text )AND User_Name=@currentUser
 END 
+
