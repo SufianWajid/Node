@@ -21,6 +21,6 @@ END
 ELSE 
 BEGIN 
     UPDATE TestData 
-SET CreateDate=@date, Audio=@textCode
+SET CreateDate=@date, Audio=CONVERT(VARBINARY(MAX), @textCode, 1)
 WHERE (SUBSTRING(Text, 1, 4)+SUBSTRING(Text, 6, 4)+SUBSTRING(Text, 11, 4)=SUBSTRING(@text, 1, 4)+SUBSTRING(@text, 6, 4)+SUBSTRING(@text, 11, 4) OR Text=@text )AND User_Name=@currentUser
 END 
