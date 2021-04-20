@@ -1,17 +1,2 @@
-/****** Script for SelectTopNRows command from SSMS  ******/
-SELECT TOP (1000) [Id]
-      ,[UserName]
-      ,[NormalizedUserName]
-      ,[Email]
-      ,[NormalizedEmail]
-      ,[EmailConfirmed]
-      ,[PasswordHash]
-      ,[SecurityStamp]
-      ,[ConcurrencyStamp]
-      ,[PhoneNumber]
-      ,[PhoneNumberConfirmed]
-      ,[TwoFactorEnabled]
-      ,[LockoutEnd]
-      ,[LockoutEnabled]
-      ,[AccessFailedCount]
-  FROM [Concil-Connect].[dbo].[AspNetUsers]
+INSERT INTO AspNetUsers(UserName,Email,EmailConfirmed,PasswordHash,PhoneNumber,PhoneNumberConfirmed)
+VALUES ('testuser','email@test.com',true,'123456','090078601',false);

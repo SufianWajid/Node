@@ -9,7 +9,7 @@ module.exports.register = async (server) => {
       handler: async (request) => {
         try {
           // get the sql client registered as a plugin
-          const db = request.server.plugins.sql2.client;
+          const db = request.server.plugins.sql.client;
 
           //   // TODO: Get the current authenticate user's ID
           // var user = request.query;
