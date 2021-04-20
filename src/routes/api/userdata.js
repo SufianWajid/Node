@@ -2,7 +2,7 @@
 
 module.exports.register = async (server) => {
   server.route({
-    method: "GET",
+    method: "POST",
     path: "/api/userdata",
 
     config: {
@@ -16,8 +16,8 @@ module.exports.register = async (server) => {
           // console.log("request : " + user.user);
           // const userId = user.user;
 
-          //   const { text } = request.payload;
-          //   console.log(text);
+          // const { text } = request.payload;
+          // console.log(text);
 
           //   // execute the query
           const res = await db.userdata.getuserlist();
