@@ -2,6 +2,7 @@
 
 const events = require("./events");
 const getlist = require("./getlist");
+const userdata = require("./userdata");
 
 const sql = require("mssql");
 
@@ -34,6 +35,8 @@ const client = async (server, config) => {
         return pool;
       }
       // create a new connection pool
+      console.log(config.server.length);
+
       pool = await sql.connect(config);
 
       // catch any connection errors and close the pool
@@ -56,6 +59,7 @@ const client = async (server, config) => {
   return {
     events: await events.register({ sql, getConnection }),
     getlist: await getlist.register({ sql, getConnection }),
+    userdata: await userdata.register({ sql, getConnection }),
   };
 };
 
