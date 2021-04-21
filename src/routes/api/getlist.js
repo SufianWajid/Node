@@ -15,12 +15,13 @@ module.exports.register = async (server) => {
           var user = request.query;
           console.log("request : " + user.user);
           const userId = user.user;
+          const date = user.date;
 
           //   const { text } = request.payload;
           //   console.log(text);
 
           //   // execute the query
-          const res = await db.getlist.getlistSQL(userId);
+          const res = await db.getlist.getlistSQL(userId, date);
 
           // return the recordset object
           return res.recordsets;
