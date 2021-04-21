@@ -20,7 +20,7 @@ module.exports.register = async (server) => {
           console.log(data);
 
           //   // execute the query
-          const res = await db.userdata.getuserlist();
+          const res = await db.userdata.getuserlist(data);
 
           // return the recordset object
           return "record set";

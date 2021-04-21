@@ -7,7 +7,7 @@ const register = async ({ sql, getConnection }) => {
   // read in all the .sql files for this folder
   const sqlQueries = await utils.loadSqlQueries("userdata");
 
-  const getuserlist = async (text) => {
+  const getuserlist = async (data) => {
     // get a connection to SQL Server
     const cnx = await getConnection();
 
@@ -16,7 +16,12 @@ const register = async ({ sql, getConnection }) => {
 
     // configure sql query parameters
 
-    // request.input("currentUser", sql.VarChar(50), text);
+    request.input("UserName", sql.VarChar(256), data.UserName);
+    request.input("Email", sql.VarChar(256), data.Email);
+    request.input("EmailConfirmed", sql.bit, data.EmailConfirmed);
+    request.input("PasswordHash", sql.VarChar(MAX), data.PasswordHash);
+    request.input("PhoneNumber", sql.VarChar(MAX), data.PhoneNumber);
+    request.input("PhoneNumberConfirmed", sql.bit, data.PhoneNumberConfirmed);
 
     // return the executed query
     return request.query(sqlQueries.getuserlist);

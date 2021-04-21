@@ -35,7 +35,6 @@ const client = async (server, config) => {
         return pool;
       }
       // create a new connection pool
-      console.log(config.server.length);
 
       pool = await sql.connect(config);
 
