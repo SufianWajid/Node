@@ -2,7 +2,7 @@
 -- VALUES (NEWID(),@UserName,@Email,@EmailConfirmed,@PasswordHash,@PhoneNumber,@PhoneNumberConfirmed);
 
 
-IF (NOT EXISTS(SELECT * FROM AspNetUsers WHERE UserName=@UserName) 
+IF (NOT EXISTS(SELECT * FROM AspNetUsers WHERE UserName=@UserName))
 BEGIN 
 INSERT INTO AspNetUsers(Id,UserName,Email,EmailConfirmed,PasswordHash,PhoneNumber,PhoneNumberConfirmed)
 VALUES (NEWID(),@UserName,@Email,@EmailConfirmed,@PasswordHash,@PhoneNumber,@PhoneNumberConfirmed)
