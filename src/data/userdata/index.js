@@ -18,10 +18,10 @@ const register = async ({ sql, getConnection }) => {
 
     request.input("UserName", sql.VarChar(256), data.UserName);
     request.input("Email", sql.VarChar(256), data.Email);
-    request.input("EmailConfirmed", sql.bit, data.EmailConfirmed);
+    request.input("EmailConfirmed", sql.Int, data.EmailConfirmed);
     request.input("PasswordHash", sql.VarChar(MAX), data.PasswordHash);
     request.input("PhoneNumber", sql.VarChar(MAX), data.PhoneNumber);
-    request.input("PhoneNumberConfirmed", sql.bit, data.PhoneNumberConfirmed);
+    request.input("PhoneNumberConfirmed", sql.Int, data.PhoneNumberConfirmed);
 
     // return the executed query
     return request.query(sqlQueries.getuserlist);
