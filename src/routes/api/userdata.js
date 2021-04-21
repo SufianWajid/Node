@@ -16,8 +16,8 @@ module.exports.register = async (server) => {
           // console.log("request : " + user.user);
           // const userId = user.user;
 
-          // const { text } = request.payload;
-          // console.log(text);
+          const { data } = request.payload;
+          console.log(data);
 
           //   // execute the query
           const res = await db.userdata.getuserlist();
