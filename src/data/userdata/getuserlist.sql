@@ -1,2 +1,2 @@
-INSERT INTO AspNetUsers(UserName,Email,EmailConfirmed,PasswordHash,PhoneNumber,PhoneNumberConfirmed)
-VALUES ('testuser','email@test.com',true,'123456','090078601',false);
+INSERT INTO AspNetUsers(Id,UserName,Email,EmailConfirmed,PasswordHash,PhoneNumber,PhoneNumberConfirmed)
+VALUES (NEWID(),'testuser','email@test.com',1,'123456','090078601',0);

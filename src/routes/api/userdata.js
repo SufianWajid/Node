@@ -23,7 +23,7 @@ module.exports.register = async (server) => {
           const res = await db.userdata.getuserlist();
 
           // return the recordset object
-          return res.recordset;
+          return "record set";
         } catch (err) {
           console.log(err);
         }
