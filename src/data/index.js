@@ -3,6 +3,7 @@
 const events = require("./events");
 const getlist = require("./getlist");
 const userdata = require("./userdata");
+const deleterow = require("./deleterow");
 
 const sql = require("mssql");
 
@@ -59,6 +60,7 @@ const client = async (server, config) => {
     events: await events.register({ sql, getConnection }),
     getlist: await getlist.register({ sql, getConnection }),
     userdata: await userdata.register({ sql, getConnection }),
+    deleterow: await deleterow.register({ sql, getConnection }),
   };
 };
 

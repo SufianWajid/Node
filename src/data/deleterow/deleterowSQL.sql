@@ -1,0 +1,1 @@
+  DELETE FROM TestData WHERE User_Name=@currentUser AND Text=@NAM;
