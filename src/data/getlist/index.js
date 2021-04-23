@@ -8,7 +8,7 @@ const register = async ({ sql, getConnection }) => {
   const sqlQueries = await utils.loadSqlQueries("getlist");
 
   const getlistSQL = async (text, date) => {
-    // get a connection to SQL Server
+    // Get a connection to SQL Server
     const cnx = await getConnection();
 
     // create a new request
