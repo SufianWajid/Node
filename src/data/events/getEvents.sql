@@ -19,15 +19,31 @@ set @bin= cast(N'' as xml).value('xs:base64Binary(sql:variable("@str"))', 'varbi
 
 
 
-IF (NOT EXISTS(SELECT * FROM TestData WHERE (SUBSTRING(Text, 1, 4)+SUBSTRING(Text, 6, 4)+SUBSTRING(Text, 11, 4)=SUBSTRING(@text, 1, 4)+SUBSTRING(@text, 6, 4)+SUBSTRING(@text, 11, 4) OR Text =@text) AND User_Name=@currentUser)) 
-BEGIN 
-    INSERT INTO TestData(Text,CreateDate,User_Name,Audio) 
-    VALUES (@text,@date,@currentUser,@bin)
+IF (NOT EXISTS(SELECT *
+FROM TestData
+WHERE (SUBSTRING
+(Text, 1, 4)+SUBSTRING
+(Text, 6, 4)+SUBSTRING
+(Text, 11, 4)=SUBSTRING
+(@text, 1, 4)+SUBSTRING
+(@text, 6, 4)+SUBSTRING
+(@text, 11, 4) OR Text=@text OR SUBSTRING
+(Text, 1, 4)+SUBSTRING
+(Text, 6, 4)+SUBSTRING
+(Text, 11, 4)=@text OR Text=SUBSTRING
+(@text, 1, 4)+SUBSTRING
+(@text, 6, 4)+SUBSTRING
+(@text, 11, 4)) AND User_Name=@currentUser)) 
+BEGIN
+    INSERT INTO TestData
+        (Text,CreateDate,User_Name,Audio)
+    VALUES
+        (@text, @date, @currentUser, @bin)
 END 
 ELSE 
-BEGIN 
+BEGIN
     UPDATE TestData 
 SET  Audio=@bin
-WHERE (SUBSTRING(Text, 1, 4)+SUBSTRING(Text, 6, 4)+SUBSTRING(Text, 11, 4)=SUBSTRING(@text, 1, 4)+SUBSTRING(@text, 6, 4)+SUBSTRING(@text, 11, 4) OR Text=@text )AND User_Name=@currentUser
+WHERE (SUBSTRING(Text, 1, 4)+SUBSTRING(Text, 6, 4)+SUBSTRING(Text, 11, 4)=SUBSTRING(@text, 1, 4)+SUBSTRING(@text, 6, 4)+SUBSTRING(@text, 11, 4) OR Text=@text OR SUBSTRING(Text, 1, 4)+SUBSTRING(Text, 6, 4)+SUBSTRING(Text, 11, 4)=@text OR Text=SUBSTRING(@text, 1, 4)+SUBSTRING(@text, 6, 4)+SUBSTRING(@text, 11, 4) )AND User_Name=@currentUser
 END 
 
