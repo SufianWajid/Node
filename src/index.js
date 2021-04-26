@@ -10,6 +10,7 @@ const startServer = async () => {
 
        // start the web server
        await app.start();
+       
 
        console.log( `Server running at http://${ config.host }:${ config.port }...` );
    } catch ( err ) {
