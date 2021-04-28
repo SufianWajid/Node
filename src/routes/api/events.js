@@ -16,28 +16,20 @@ module.exports.register = async (server) => {
           const { text } = request.payload;
           console.log(text);
 
-          function rowObj(NAM, Code, date, currentUser) {
+          function rowObj(NAM, Code, date, currentUser, detail) {
             this.NAM = NAM;
             this.Code = Code;
             this.date = date;
             this.currentUser = currentUser;
-          }
-
-          function _base64ToArrayBuffer(base64) {
-            var binary_string = window.atob(base64);
-            var len = binary_string.length;
-            var bytes = new Uint8Array(len);
-            for (var i = 0; i < len; i++) {
-              bytes[i] = binary_string.charCodeAt(i);
-            }
-            return bytes.buffer;
+            this.detail = detail;
           }
 
           var obj = new rowObj(
             text.NAM,
             text.Code,
             text.date,
-            text.currentUser
+            text.currentUser,
+            text.detail
           );
 
           // execute the query
