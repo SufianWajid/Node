@@ -16,12 +16,18 @@ module.exports.register = async (server) => {
           const { text } = request.payload;
           console.log(text);
 
-          function rowObj(NAM, Code, date, currentUser, detail) {
+          function rowObj(NAM, Code, date, currentUser, detail, old) {
             this.NAM = NAM;
             this.Code = Code;
             this.date = date;
             this.currentUser = currentUser;
             this.detail = detail;
+            this.old = old;
+          }
+
+          let old = text.old;
+          if (old == null) {
+            old = text.NAM;
           }
 
           var obj = new rowObj(
@@ -29,7 +35,8 @@ module.exports.register = async (server) => {
             text.Code,
             text.date,
             text.currentUser,
-            text.detail
+            text.detail,
+            old
           );
 
           // execute the query

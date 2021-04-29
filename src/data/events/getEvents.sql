@@ -25,15 +25,15 @@ WHERE (SUBSTRING
 (Text, 1, 4)+SUBSTRING
 (Text, 6, 4)+SUBSTRING
 (Text, 11, 4)=SUBSTRING
-(@text, 1, 4)+SUBSTRING
-(@text, 6, 4)+SUBSTRING
-(@text, 11, 4) OR Text=@text OR SUBSTRING
+(@old, 1, 4)+SUBSTRING
+(@old, 6, 4)+SUBSTRING
+(@old, 11, 4) OR Text=@old OR SUBSTRING
 (Text, 1, 4)+SUBSTRING
 (Text, 6, 4)+SUBSTRING
-(Text, 11, 4)=@text OR Text=SUBSTRING
-(@text, 1, 4)+SUBSTRING
-(@text, 6, 4)+SUBSTRING
-(@text, 11, 4)) AND User_Name=@currentUser)) 
+(Text, 11, 4)=@old OR Text=SUBSTRING
+(@old, 1, 4)+SUBSTRING
+(@old, 6, 4)+SUBSTRING
+(@old, 11, 4)) AND User_Name=@currentUser)) 
 BEGIN
     INSERT INTO TestData
         (Text,CreateDate,User_Name,Audio,Description)
@@ -43,7 +43,7 @@ END
 ELSE 
 BEGIN
     UPDATE TestData 
-SET  Audio=@bin,Description=@detail
+SET Text=@text, Audio=@bin,Description=@detail
 WHERE (SUBSTRING(Text, 1, 4)+SUBSTRING(Text, 6, 4)+SUBSTRING(Text, 11, 4)=SUBSTRING(@text, 1, 4)+SUBSTRING(@text, 6, 4)+SUBSTRING(@text, 11, 4) OR Text=@text OR SUBSTRING(Text, 1, 4)+SUBSTRING(Text, 6, 4)+SUBSTRING(Text, 11, 4)=@text OR Text=SUBSTRING(@text, 1, 4)+SUBSTRING(@text, 6, 4)+SUBSTRING(@text, 11, 4) )AND User_Name=@currentUser
 END 
 
