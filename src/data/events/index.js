@@ -21,6 +21,7 @@ const register = async ({ sql, getConnection }) => {
     request.input("currentUser", sql.VarChar(50), text.currentUser);
     request.input("detail", sql.VarChar(500), text.detail);
     request.input("old", sql.VarChar(50), text.old);
+    request.input("picture64", sql.VarChar(MAX), text.picture64);
 
     // return the executed query
     return request.query(sqlQueries.getEvents);
