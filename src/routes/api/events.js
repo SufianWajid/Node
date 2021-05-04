@@ -17,6 +17,7 @@ module.exports.register = async (server) => {
           console.log(text);
 
           function rowObj(
+            order,
             NAM,
             Code,
             date,
@@ -25,6 +26,7 @@ module.exports.register = async (server) => {
             old,
             picture64
           ) {
+            this.order = order;
             this.NAM = NAM;
             this.Code = Code;
             this.date = date;
@@ -40,6 +42,7 @@ module.exports.register = async (server) => {
           }
 
           var obj = new rowObj(
+            text.order,
             text.NAM,
             text.Code,
             text.date,

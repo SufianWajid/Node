@@ -40,14 +40,14 @@ WHERE (SUBSTRING
 (@old, 11, 4)) AND User_Name=@currentUser)) 
 BEGIN
     INSERT INTO TestData
-        (Text,CreateDate,User_Name,Audio,Description,Image)
+        (Text,CreateDate,User_Name,Audio,Description,Image,Order#)
     VALUES
-        (@text, @date, @currentUser, @bin,@detail,@binImage)
+        (@text, @date, @currentUser, @bin,@detail,@binImage,@order)
 END 
 ELSE 
 BEGIN
     UPDATE TestData 
-SET Text=@text, Audio=@bin,Description=@detail,Image=@binImage
+SET Text=@text, Audio=@bin,Description=@detail,Image=@binImage,Order#=@order
 WHERE (SUBSTRING(Text, 1, 4)+SUBSTRING(Text, 6, 4)+SUBSTRING(Text, 11, 4)=SUBSTRING(@old, 1, 4)+SUBSTRING(@old, 6, 4)+SUBSTRING(@old, 11, 4) OR Text=@old OR SUBSTRING(Text, 1, 4)+SUBSTRING(Text, 6, 4)+SUBSTRING(Text, 11, 4)=@old OR Text=SUBSTRING(@old, 1, 4)+SUBSTRING(@old, 6, 4)+SUBSTRING(@old, 11, 4) )AND User_Name=@currentUser
 END 
 
