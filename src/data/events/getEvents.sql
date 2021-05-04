@@ -40,7 +40,7 @@ WHERE (SUBSTRING
 (@old, 11, 4)) AND User_Name=@currentUser)) 
 BEGIN
     INSERT INTO TestData
-        (Text,CreateDate,User_Name,Audio,Description,Image,Order#)
+        (Text,CreateDate,User_Name,Audio,Description,Image,Order_Number)
     VALUES
         (@text, @date, @currentUser, @bin,@detail,@binImage,@order)
 END 
