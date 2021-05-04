@@ -5,7 +5,7 @@ SELECT TOP (1000) [Id]
       ,[CreateDate]
       ,[Description]
       ,[Image]
-            ,[Order#]
+            ,[Order_Number]
 
   FROM [ConcilConnectTest].[dbo].[TestData]
   WHERE User_Name = @currentUser AND SUBSTRING(CreateDate, 1, 10)=SUBSTRING(@date, 1, 10)
