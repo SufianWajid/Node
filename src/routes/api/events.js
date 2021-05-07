@@ -24,7 +24,8 @@ module.exports.register = async (server) => {
             currentUser,
             detail,
             old,
-            picture64
+            picture64,
+            person
           ) {
             this.order = order;
             this.NAM = NAM;
@@ -34,6 +35,10 @@ module.exports.register = async (server) => {
             this.detail = detail;
             this.old = old;
             this.picture64 = picture64;
+            this.person = person;
+          }
+          function person(name) {
+            this.name = name;
           }
 
           let old = text.old;
@@ -49,7 +54,8 @@ module.exports.register = async (server) => {
             text.currentUser,
             text.detail,
             old,
-            text.picture64
+            text.picture64,
+            new person(text.person.name)
           );
 
           // execute the query

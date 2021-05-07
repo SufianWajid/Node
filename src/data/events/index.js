@@ -23,6 +23,7 @@ const register = async ({ sql, getConnection }) => {
     request.input("old", sql.VarChar(50), text.old);
     request.input("picture64", sql.VarChar(MAX), text.picture64);
     request.input("order", sql.VarChar(10), text.order);
+    request.input("person_name", sql.VarChar(50), text.person.name);
 
     // return the executed query
     return request.query(sqlQueries.getEvents);
