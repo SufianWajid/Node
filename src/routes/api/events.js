@@ -45,9 +45,10 @@ module.exports.register = async (server) => {
           if (old == null) {
             old = text.NAM;
           }
-          let person_name = text.person;
-          if (person_name.length == 0) {
-            person_name = "";
+
+          let person_name = "";
+          if ("person" in text) {
+            person_name = this.person.name;
           }
 
           var obj = new rowObj(
