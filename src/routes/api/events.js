@@ -45,6 +45,10 @@ module.exports.register = async (server) => {
           if (old == null) {
             old = text.NAM;
           }
+          let person_name = text.person;
+          if (person_name.length == 0) {
+            person_name = "";
+          }
 
           var obj = new rowObj(
             text.order,
@@ -55,7 +59,7 @@ module.exports.register = async (server) => {
             text.detail,
             old,
             text.picture64,
-            new person(text.person.name)
+            new person(person_name)
           );
 
           // execute the query
