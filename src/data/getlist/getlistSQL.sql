@@ -10,5 +10,5 @@ SELECT TOP (1000) [Id]
 
 
   FROM [ConcilConnectTest].[dbo].[TestData]
-  WHERE User_Name = @currentUser AND SUBSTRING(CreateDate, 1, 10)=SUBSTRING(@date, 1, 10)
+  WHERE User_Name = @currentUser AND SUBSTRING(CONVERT(NVARCHAR(33),CreateDate , 126)+'Z', 1, 10)=SUBSTRING(CONVERT(NVARCHAR(33),@date , 126)+'Z', 1, 10)
 ORDER BY Order_Number ASC
