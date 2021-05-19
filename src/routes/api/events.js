@@ -14,7 +14,7 @@ module.exports.register = async (server) => {
           // TODO: Get the current authenticate user's ID
           const Id = 1;
           const { text } = request.payload;
-          console.log("Special word : " + text);
+          console.log(text);
 
           function rowObj(
             order,
