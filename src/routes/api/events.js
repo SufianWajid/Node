@@ -56,7 +56,7 @@ module.exports.register = async (server) => {
             text.NAM,
             text.Code,
             text.date,
-            text.currentUser,
+            text.user,
             text.detail,
             old,
             text.picture64,
