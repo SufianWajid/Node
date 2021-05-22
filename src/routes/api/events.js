@@ -51,11 +51,22 @@ module.exports.register = async (server) => {
             person_name = text.person.name;
           }
 
+          let datenew = new Date(text.date);
+
+          var d1 = new Date();
+          var d2 = new Date(datenew);
+
+          d1 = d1.getDate() + d1.getMonth().toString() + d1.getFullYear();
+          d2 = d2.getDate() + d2.getMonth().toString() + d2.getFullYear();
+          if (d1 != d2) {
+            datenew = new Date(datenew.setHours(datenew.getHours() + 24));
+          }
+
           var obj = new rowObj(
             text.order,
             text.NAM,
             text.Code,
-            text.date,
+            datenew,
             text.user,
             text.detail,
             old,
