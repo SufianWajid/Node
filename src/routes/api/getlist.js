@@ -16,7 +16,6 @@ module.exports.register = async (server) => {
 
           const userId = user.user;
           const date = user.date;
-          const date = user.DateChange;
 
           console.log("request : " + userId);
           console.log("request : " + date);
