@@ -58,7 +58,10 @@ module.exports.register = async (server) => {
 
           d1 = d1.getDate() + d1.getMonth().toString() + d1.getFullYear();
           d2 = d2.getDate() + d2.getMonth().toString() + d2.getFullYear();
-          if (d1 != d2) {
+
+          console.log("DateChange: " + text.DateChange);
+
+          if (text.DateChange) {
             datenew = new Date(datenew.setHours(datenew.getHours() + 24));
           }
 
