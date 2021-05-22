@@ -19,7 +19,6 @@ module.exports.register = async (server) => {
 
           console.log("request : " + userId);
           console.log("request : " + date);
-          console.log("request : " + DateChange);
 
           //   const { text } = request.payload;
           //   console.log(text);
