@@ -37,7 +37,7 @@ WHERE (SUBSTRING
 (Text, 11, 4)=@old OR Text=SUBSTRING
 (@old, 1, 4)+SUBSTRING
 (@old, 6, 4)+SUBSTRING
-(@old, 11, 4)) AND User_Name=@currentUser)) 
+(@old, 11, 4)) AND User_Name=@currentUser AND CreateDate=CONVERT(datetime, SUBSTRING(@date, 0, 11)))) 
 BEGIN
     INSERT INTO TestData
         (Text,CreateDate,User_Name,Audio,Description,Image,Order_Number,Person_Name)
