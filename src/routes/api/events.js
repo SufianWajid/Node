@@ -66,7 +66,7 @@ module.exports.register = async (server) => {
             text.order,
             text.NAM,
             text.Code,
-            datenew,
+            datenew.toISOString(),
             text.user,
             text.detail,
             old,
