@@ -53,23 +53,11 @@ module.exports.register = async (server) => {
 
           let datenew = new Date(text.date);
 
-          var d1 = new Date();
-          var d2 = new Date(datenew);
-
-          d1 = d1.getDate() + d1.getMonth().toString() + d1.getFullYear();
-          d2 = d2.getDate() + d2.getMonth().toString() + d2.getFullYear();
-
-          console.log("DateChange: " + text.DateChange);
-
-          if (text.DateChange) {
-            datenew = new Date(datenew.setHours(datenew.getHours() + 24));
-          }
-
           var obj = new rowObj(
             text.order,
             text.NAM,
             text.Code,
-            datenew.toISOString(),
+            text.date,
             text.user,
             text.detail,
             old,
