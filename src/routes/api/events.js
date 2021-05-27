@@ -42,7 +42,7 @@ module.exports.register = async (server) => {
           }
 
           let old = text.old;
-          if (old == null) {
+          if (old == null || old == "") {
             old = text.NAM;
           }
 
