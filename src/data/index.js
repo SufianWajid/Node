@@ -11,6 +11,7 @@ const deletetestdatadetails = require("./Delete_TestDataDetails");
 const getformdetails = require("./Get_FormDetails");
 const insertformdetails = require("./Insert_FormDetails");
 const deleteformDetails = require("./Delete_FormDetails");
+const getformheader = require("./Get_FormHeader");
 
 const sql = require("mssql");
 
@@ -90,6 +91,10 @@ const client = async (server, config) => {
       getConnection,
     }),
     deleteformDetails: await deleteformDetails.register({
+      sql,
+      getConnection,
+    }),
+    getformheader: await getformheader.register({
       sql,
       getConnection,
     }),
