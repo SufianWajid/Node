@@ -9,6 +9,7 @@ const gettestdatadetails = require("./Get_TestDataDetails");
 const inserttestdatadetails = require("./Insert_TestDataDetails");
 const deletetestdatadetails = require("./Delete_TestDataDetails");
 const getformdetails = require("./Get_FormDetails");
+const insertformdetails = require("./Insert_FormDetails");
 
 module.exports.register = async (server) => {
   await events.register(server);
@@ -20,4 +21,5 @@ module.exports.register = async (server) => {
   await inserttestdatadetails.register(server);
   await deletetestdatadetails.register(server);
   await getformdetails.register(server);
+  await insertformdetails.register(server);
 };
