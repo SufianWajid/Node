@@ -1,0 +1,1 @@
+  DELETE FROM FormDetails WHERE CAST(ID AS int) = CAST(@ID AS int);

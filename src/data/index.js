@@ -10,6 +10,7 @@ const inserttestdatadetails = require("./Insert_TestDataDetails");
 const deletetestdatadetails = require("./Delete_TestDataDetails");
 const getformdetails = require("./Get_FormDetails");
 const insertformdetails = require("./Insert_FormDetails");
+const deleteformDetails = require("./Delete_FormDetails");
 
 const sql = require("mssql");
 
@@ -85,6 +86,10 @@ const client = async (server, config) => {
       getConnection,
     }),
     insertformdetails: await insertformdetails.register({
+      sql,
+      getConnection,
+    }),
+    deleteformDetails: await deleteformDetails.register({
       sql,
       getConnection,
     }),
