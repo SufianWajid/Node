@@ -5,6 +5,7 @@ const getlist = require("./getlist");
 const userdata = require("./userdata");
 const deleterow = require("./deleterow");
 const getall = require("./getall");
+const gettestdatadetails = require("./Get_TestDataDetails");
 
 const sql = require("mssql");
 
@@ -63,6 +64,10 @@ const client = async (server, config) => {
     userdata: await userdata.register({ sql, getConnection }),
     deleterow: await deleterow.register({ sql, getConnection }),
     getall: await getall.register({ sql, getConnection }),
+    gettestdatadetails: await gettestdatadetails.register({
+      sql,
+      getConnection,
+    }),
   };
 };
 
