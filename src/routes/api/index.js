@@ -7,6 +7,7 @@ const deleterow = require("./deleterow");
 const getall = require("./getall");
 const gettestdatadetails = require("./Get_TestDataDetails");
 const inserttestdatadetails = require("./Insert_TestDataDetails");
+const deletetestdatadetails = require("./Delete_TestDataDetails");
 
 module.exports.register = async (server) => {
   await events.register(server);
@@ -16,4 +17,5 @@ module.exports.register = async (server) => {
   await getall.register(server);
   await gettestdatadetails.register(server);
   await inserttestdatadetails.register(server);
+  await deletetestdatadetails.register(server);
 };

@@ -7,6 +7,7 @@ const deleterow = require("./deleterow");
 const getall = require("./getall");
 const gettestdatadetails = require("./Get_TestDataDetails");
 const inserttestdatadetails = require("./Insert_TestDataDetails");
+const deletetestdatadetails = require("./Delete_TestDataDetails");
 
 const sql = require("mssql");
 
@@ -70,6 +71,10 @@ const client = async (server, config) => {
       getConnection,
     }),
     inserttestdatadetails: await inserttestdatadetails.register({
+      sql,
+      getConnection,
+    }),
+    deletetestdatadetails: await deletetestdatadetails.register({
       sql,
       getConnection,
     }),

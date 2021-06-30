@@ -1,0 +1,1 @@
+  DELETE FROM TestDataDetails WHERE CAST(ID AS int) = CAST(@ID AS int);
