@@ -1,12 +1,12 @@
-SELECT TOP (1000) [Id]
+SELECT  [Id]
       ,[Text]
       ,[Audio]
       ,[User_Name]
       ,[CreateDate]
       ,[Description]
       ,[Image]
-            ,[Order_Number]
-                  ,[Person_Name]
+      ,[Order_Number]
+      ,[Person_Name]
 
 
   FROM [ConcilConnectTest].[dbo].[TestData]

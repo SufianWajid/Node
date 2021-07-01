@@ -14,7 +14,7 @@ module.exports.register = async (server) => {
           var params = request.query;
 
           // execute the query
-          const res = await db.deleterow.deleterow(params.user, params.NAM);
+          const res = await db.deleterow.deleterow(params.Id);
 
           // return the recordset object
           return "Record Deleted";

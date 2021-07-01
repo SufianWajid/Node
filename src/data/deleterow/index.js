@@ -7,7 +7,7 @@ const register = async ({ sql, getConnection }) => {
   // read in all the .sql files for this folder
   const sqlQueries = await utils.loadSqlQueries("deleterow");
 
-  const deleterow = async (user, nam) => {
+  const deleterow = async (Id) => {
     // Get a connection to SQL Server
     const cnx = await getConnection();
 
@@ -16,8 +16,7 @@ const register = async ({ sql, getConnection }) => {
 
     // configure sql query parameters
 
-    request.input("currentUser", sql.VarChar(50), user);
-    request.input("NAM", sql.VarChar(50), nam);
+    request.input("Id", sql.VarChar(MAX), Id);
 
     // return the executed query
     return request.query(sqlQueries.deleterowSQL);
