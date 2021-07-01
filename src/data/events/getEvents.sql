@@ -1,17 +1,4 @@
--- INSERT INTO TestData(Text,CreateDate,User_Name)
--- VALUES (@text,@date,@currentUser);
 
--- IF (NOT EXISTS(SELECT * FROM TestData WHERE Text=@text AND User_Name=@currentUser)) 
--- BEGIN 
---     INSERT INTO TestData(Text,Audio,CreateDate,User_Name) 
---     VALUES (@text,@textCode,@date,@currentUser)
--- END 
--- ELSE 
--- BEGIN 
---     UPDATE TestData 
--- SET CreateDate=@date, Audio=@textCode
--- WHERE Text=@text AND User_Name=@currentUser
--- END 
 
 Declare @str varchar(max) = @textCode;
 Declare @bin varbinary(max);
@@ -25,29 +12,17 @@ set @binImage= cast(N'' as xml).value('xs:base64Binary(sql:variable("@picture64"
 
 IF (NOT EXISTS(SELECT *
 FROM TestData
-WHERE (SUBSTRING
-(Text, 1, 4)+SUBSTRING
-(Text, 6, 4)+SUBSTRING
-(Text, 11, 4)=SUBSTRING
-(@old, 1, 4)+SUBSTRING
-(@old, 6, 4)+SUBSTRING
-(@old, 11, 4) OR Text=@old OR SUBSTRING
-(Text, 1, 4)+SUBSTRING
-(Text, 6, 4)+SUBSTRING
-(Text, 11, 4)=@old OR Text=SUBSTRING
-(@old, 1, 4)+SUBSTRING
-(@old, 6, 4)+SUBSTRING
-(@old, 11, 4)) AND User_Name=@currentUser AND CreateDate=CONVERT(datetime, @date))) 
+WHERE ( Id = @Id  )  )) 
 BEGIN
     INSERT INTO TestData
-        (Text,CreateDate,User_Name,Audio,Description,Image,Order_Number,Person_Name)
+        (Id, Text,CreateDate,User_Name,Audio,Description,Image,Order_Number,Person_Name)
     VALUES
-        (@text, CONVERT(datetime, @date), @currentUser, @bin, @detail, @binImage, @order, @person_name)
+        (@Id, @text, CONVERT(datetime, @date), @currentUser, @bin, @detail, @binImage, @order, @person_name)
 END 
 ELSE 
 BEGIN
     UPDATE TestData 
 SET Text=@text, Audio=@bin,Description=@detail,Image=@binImage,Order_Number=@order,Person_Name =@person_name
-WHERE (SUBSTRING(Text, 1, 4)+SUBSTRING(Text, 6, 4)+SUBSTRING(Text, 11, 4)=SUBSTRING(@old, 1, 4)+SUBSTRING(@old, 6, 4)+SUBSTRING(@old, 11, 4) OR Text=@old OR SUBSTRING(Text, 1, 4)+SUBSTRING(Text, 6, 4)+SUBSTRING(Text, 11, 4)=@old OR Text=SUBSTRING(@old, 1, 4)+SUBSTRING(@old, 6, 4)+SUBSTRING(@old, 11, 4) )AND User_Name=@currentUser
+WHERE Id = @Id
 END 
 

@@ -12,11 +12,11 @@ module.exports.register = async (server) => {
           const db = request.server.plugins.sql.client;
 
           // TODO: Get the current authenticate user's ID
-          const Id = 1;
           const { text } = request.payload;
           console.log(text);
 
           function rowObj(
+            Id,
             order,
             NAM,
             Code,
@@ -27,6 +27,7 @@ module.exports.register = async (server) => {
             picture64,
             person
           ) {
+            this.Id = Id;
             this.order = order;
             this.NAM = NAM;
             this.Code = Code;
@@ -54,6 +55,7 @@ module.exports.register = async (server) => {
           let datenew = new Date(text.date);
 
           var obj = new rowObj(
+            text.Id,
             text.order,
             text.NAM,
             text.Code,

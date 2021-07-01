@@ -15,6 +15,7 @@ const register = async ({ sql, getConnection }) => {
     const request = await cnx.request();
 
     // configure sql query parameters
+    request.input("Id", sql.VarChar(MAX), text.Id);
     request.input("text", sql.VarChar(50), text.NAM);
     request.input("textCode", sql.VarChar(MAX), text.Code);
     request.input("date", sql.VarChar(50), text.date);
