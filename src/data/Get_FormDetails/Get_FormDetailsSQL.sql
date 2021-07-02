@@ -12,3 +12,4 @@ SELECT  [ID]
       ,[DefaultValue]
       ,[IDFormHeader]
   FROM [ConcilConnectTest].[dbo].[FormDetails]
+  WHERE IDFormHeader = @Id
