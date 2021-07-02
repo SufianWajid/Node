@@ -23,7 +23,6 @@ module.exports.register = async (server) => {
             date,
             currentUser,
             detail,
-            old,
             picture64,
             person
           ) {
@@ -34,7 +33,6 @@ module.exports.register = async (server) => {
             this.date = date;
             this.currentUser = currentUser;
             this.detail = detail;
-            this.old = old;
             this.picture64 = picture64;
             this.person = person;
           }
@@ -42,17 +40,10 @@ module.exports.register = async (server) => {
             this.name = name;
           }
 
-          let old = text.old;
-          if (old == null || old == "") {
-            old = text.NAM;
-          }
-
           let person_name = "";
           if ("person" in text) {
             person_name = text.person.name;
           }
-
-          let datenew = new Date(text.date);
 
           var obj = new rowObj(
             text.Id,
@@ -62,7 +53,6 @@ module.exports.register = async (server) => {
             text.date,
             text.user,
             text.detail,
-            old,
             text.picture64,
             new person(person_name)
           );
