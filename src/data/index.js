@@ -13,6 +13,7 @@ const insertformdetails = require("./Insert_FormDetails");
 const deleteformDetails = require("./Delete_FormDetails");
 const getformheader = require("./Get_FormHeader");
 const insertformheader = require("./Insert_FormHeader");
+const getformheaderId = require("./Get_FormHeader_Id");
 
 const sql = require("mssql");
 
@@ -100,6 +101,10 @@ const client = async (server, config) => {
       getConnection,
     }),
     insertformheader: await insertformheader.register({
+      sql,
+      getConnection,
+    }),
+    getformheaderId: await getformheaderId.register({
       sql,
       getConnection,
     }),
