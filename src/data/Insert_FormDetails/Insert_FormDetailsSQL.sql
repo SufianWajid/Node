@@ -11,7 +11,7 @@ BEGIN
         (@UserName, @isActive, CAST(@orderNumber AS smallint) ,
          @DisplayedText, @MakeHiglight,
           @HighlightColor,@weekEnd,CAST(@haveUnits AS numeric(6, 2)),
-          CAST(@UnitsType AS tinyint),@isTextbox,CAST(@DefaultValue AS tinyint), CAST(@IDFormHeader AS int)
+          CAST(@UnitsType AS tinyint),@isTextbox,@DefaultValue , CAST(@IDFormHeader AS int)
           );
 
 END 
@@ -28,7 +28,7 @@ SET UserName = @UserName,
     haveUnits = CAST(@haveUnits AS numeric(6, 2)),
     UnitsType = CAST(@UnitsType AS tinyint),
     isTextbox =@isTextbox ,
-    DefaultValue = CAST(@DefaultValue AS tinyint),
+    DefaultValue = @DefaultValue ,
     IDFormHeader =CAST(@IDFormHeader AS int)
 
 WHERE CAST(ID AS int)=CAST(@ID AS int)
