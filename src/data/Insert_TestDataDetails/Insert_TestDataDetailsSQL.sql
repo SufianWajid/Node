@@ -28,7 +28,11 @@ Value_CheckBox=@Value_CheckBox,
 Value_TextBox=@Value_TextBox
 
 
-WHERE CAST(ID AS int)=CAST(@ID AS int)
+WHERE LOWER(UserName)=LOWER(@UserName) AND
+ LOWER(NAMTextTestData)=LOWER(@NAMTextTestData)  AND
+ CreateDateTestData = CONVERT(datetime, @CreateDateTestData) AND
+ FormHeaderID = @FormHeaderID AND
+ LOWER(FormDetailsDisplayedText)=LOWER(@FormDetailsDisplayedText)
 END 
 
 
