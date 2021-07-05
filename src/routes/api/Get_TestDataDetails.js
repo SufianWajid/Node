@@ -12,15 +12,25 @@ module.exports.register = async (server) => {
           const db = request.server.plugins.sql.client;
 
           //   // TODO: Get the current authenticate user's ID
-          var user = request.query;
+          var params = request.query;
 
-          const userId = user.user;
+          const UserName = params.UserName;
+          const NAMTextTestData = params.NAMTextTestData;
+          const CreateDateTestData = params.CreateDateTestData;
+          const FormHeaderID = params.FormHeaderID;
+          const FormDetailsDisplayedText = params.FormDetailsDisplayedText;
 
           //   const { text } = request.payload;
           //   console.log(text);
 
           //   // execute the query
-          const res = await db.gettestdatadetails.SQL(userId);
+          const res = await db.gettestdatadetails.SQL(
+            UserName,
+            NAMTextTestData,
+            CreateDateTestData,
+            FormHeaderID,
+            FormDetailsDisplayedText
+          );
 
           // return the recordset object
           return res.recordset;
