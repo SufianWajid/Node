@@ -4,7 +4,12 @@
 --     (@UserName, @NAMTextTestData, @CreateDateTestData, @FormHeaderID, @FormDetailsDisplayedText, @Value);
 IF (NOT EXISTS(SELECT *
 FROM TestDataDetails
-WHERE CAST(ID AS int)=CAST(@ID AS int)  )) 
+WHERE LOWER(UserName)=LOWER(@UserName) AND
+ LOWER(NAMTextTestData)=LOWER(@NAMTextTestData)  AND
+ CreateDateTestData = CONVERT(datetime, @CreateDateTestData) AND
+ FormHeaderID = @FormHeaderID AND
+ LOWER(FormDetailsDisplayedText)=LOWER(@FormDetailsDisplayedText)
+ )) 
 BEGIN
     INSERT INTO TestDataDetails
         (UserName,NAMTextTestData,CreateDateTestData,FormHeaderID,FormDetailsDisplayedText,Value_CheckBox, Value_TextBox)

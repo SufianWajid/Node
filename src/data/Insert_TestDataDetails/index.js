@@ -13,7 +13,6 @@ const register = async ({ sql, getConnection }) => {
 
     // create a new request
     const request = await cnx.request();
-    console.log("Hittttt :" + model.ID);
 
     // configure sql query parameters
     request.input("ID", sql.VarChar(MAX), model.ID);
