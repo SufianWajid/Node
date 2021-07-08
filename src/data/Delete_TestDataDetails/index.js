@@ -7,7 +7,7 @@ const register = async ({ sql, getConnection }) => {
   // read in all the .sql files for this folder
   const sqlQueries = await utils.loadSqlQueries("Delete_TestDataDetails");
 
-  const SQL = async (ID) => {
+  const SQL = async (UserName, NAMTextTestData, CreateDateTestData) => {
     // Get a connection to SQL Server
     const cnx = await getConnection();
 
@@ -16,7 +16,9 @@ const register = async ({ sql, getConnection }) => {
 
     // configure sql query parameters
 
-    request.input("ID", sql.VarChar(MAX), ID);
+    request.input("UserName", sql.VarChar(MAX), UserName);
+    request.input("NAMTextTestData", sql.VarChar(MAX), NAMTextTestData);
+    request.input("CreateDateTestData", sql.VarChar(MAX), CreateDateTestData);
 
     // return the executed query
     return request.query(sqlQueries.Delete_TestDataDetails);

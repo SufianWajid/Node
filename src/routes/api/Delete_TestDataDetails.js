@@ -12,11 +12,19 @@ module.exports.register = async (server) => {
           const db = request.server.plugins.sql.client;
 
           var params = request.query;
+          const UserName = params.UserName;
+          const NAMTextTestData = params.NAMTextTestData;
+          const CreateDateTestData = params.CreateDateTestData;
+
           // execute the query
-          const res = await db.deletetestdatadetails.SQL(params.ID);
+          const res = await db.deletetestdatadetails.SQL(
+            UserName,
+            NAMTextTestData,
+            CreateDateTestData
+          );
 
           // return the recordset object
-          return "Record Deleted : " + params.ID;
+          return "Record Deleted";
         } catch (err) {
           console.log(err);
         }
