@@ -6,15 +6,15 @@ IF (NOT EXISTS(SELECT *
 FROM TestDataDetails
 WHERE LOWER(UserName)=LOWER(@UserName) AND
  LOWER(NAMTextTestData)=LOWER(@NAMTextTestData)  AND
- CreateDateTestData = CONVERT(datetime, @CreateDateTestData) AND
- FormHeaderID = @FormHeaderID AND
+ CreateDateTestData = CONVERT(date, @CreateDateTestData) AND
+--  FormHeaderID = @FormHeaderID AND
  LOWER(FormDetailsDisplayedText)=LOWER(@FormDetailsDisplayedText)
  )) 
 BEGIN
     INSERT INTO TestDataDetails
-        (UserName,NAMTextTestData,CreateDateTestData,FormHeaderID,FormDetailsDisplayedText,Value_CheckBox, Value_TextBox)
+        (UserName,NAMTextTestData,CreateDateTestData,FormDetailsDisplayedText,Value_CheckBox, Value_TextBox)
     VALUES
-        (@UserName, @NAMTextTestData, CONVERT(datetime, @CreateDateTestData) , @FormHeaderID, @FormDetailsDisplayedText, @Value_CheckBox,@Value_TextBox);
+        (@UserName, @NAMTextTestData, CONVERT(datetime, @CreateDateTestData) , @FormDetailsDisplayedText, @Value_CheckBox,@Value_TextBox);
 
 END 
 ELSE 
@@ -22,7 +22,6 @@ BEGIN
     UPDATE TestDataDetails 
 SET UserName=@UserName,
 NAMTextTestData=@NAMTextTestData,
-FormHeaderID=@FormHeaderID,
 FormDetailsDisplayedText=@FormDetailsDisplayedText,
 Value_CheckBox=@Value_CheckBox,
 Value_TextBox=@Value_TextBox
@@ -30,8 +29,8 @@ Value_TextBox=@Value_TextBox
 
 WHERE LOWER(UserName)=LOWER(@UserName) AND
  LOWER(NAMTextTestData)=LOWER(@NAMTextTestData)  AND
- CreateDateTestData = CONVERT(datetime, @CreateDateTestData) AND
- FormHeaderID = @FormHeaderID AND
+ CreateDateTestData = CONVERT(date, @CreateDateTestData) AND
+--  FormHeaderID = @FormHeaderID AND
  LOWER(FormDetailsDisplayedText)=LOWER(@FormDetailsDisplayedText)
 END 
 
