@@ -30,6 +30,7 @@ const register = async ({ sql, getConnection }) => {
       sql.VarChar(256),
       model.FormDetailsDisplayedText
     );
+    request.input("isTextbox", sql.VarChar(256), model.isTextbox);
     request.input("Value_CheckBox", sql.VarChar(256), model.Value_CheckBox);
     request.input("Value_TextBox", sql.VarChar(256), model.Value_TextBox);
 
