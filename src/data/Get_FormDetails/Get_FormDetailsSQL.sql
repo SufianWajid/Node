@@ -10,6 +10,6 @@ SELECT  [ID]
       ,[UnitsType]
       ,[isTextbox]
       ,[DefaultValue]
-      ,[IDFormHeader]
+      ,[FormHeaderID]
   FROM [ConcilConnectTest].[dbo].[FormDetails]
-  WHERE IDFormHeader = @Id
+  WHERE FormHeaderID = @Id
