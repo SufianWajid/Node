@@ -24,7 +24,7 @@ module.exports.register = async (server) => {
           const res = await db.getformheaderId.SQL(user, date, NAM);
 
           // return the recordset object
-          return res.recordset[0].ID;
+          return res.recordset;
         } catch (err) {
           console.log(err);
         }
