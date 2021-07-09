@@ -12,9 +12,9 @@ WHERE LOWER(UserName)=LOWER(@UserName) AND
  )) 
 BEGIN
     INSERT INTO TestDataDetails
-        (UserName,NAMTextTestData,CreateDateTestData,FormDetailsDisplayedText,isTextbox,Value_CheckBox, Value_TextBox)
+        (UserName,NAMTextTestData,CreateDateTestData,FormDetailsDisplayedText,isTextbox,Value_CheckBox, Value_TextBox,FormHeaderNaming)
     VALUES
-        (@UserName, @NAMTextTestData, CONVERT(datetime, @CreateDateTestData) , @FormDetailsDisplayedText,@isTextbox, @Value_CheckBox,@Value_TextBox);
+        (@UserName, @NAMTextTestData, CONVERT(datetime, @CreateDateTestData) , @FormDetailsDisplayedText,@isTextbox, @Value_CheckBox,@Value_TextBox,@FormHeaderNaming);
 
 END 
 ELSE 
@@ -25,7 +25,8 @@ NAMTextTestData=@NAMTextTestData,
 FormDetailsDisplayedText=@FormDetailsDisplayedText,
 isTextbox =@isTextbox,
 Value_CheckBox=@Value_CheckBox,
-Value_TextBox=@Value_TextBox
+Value_TextBox=@Value_TextBox,
+FormHeaderNaming = @FormHeaderNaming
 
 
 WHERE LOWER(UserName)=LOWER(@UserName) AND
