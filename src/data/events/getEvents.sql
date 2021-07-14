@@ -17,7 +17,7 @@ BEGIN
     INSERT INTO TestData
         (Id, Text,CreateDate,User_Name,Audio,Description,Image,Order_Number,Person_Name)
     VALUES
-        (@Id, @text, CONVERT(datetime, @date), @currentUser, @bin, @detail, @binImage, @order, @person_name)
+        (@Id, @text, CONVERT(date, @date), @currentUser, @bin, @detail, @binImage, @order, @person_name)
 END 
 ELSE 
 BEGIN
