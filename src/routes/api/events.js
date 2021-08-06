@@ -64,6 +64,7 @@ module.exports.register = async (server) => {
           return "Record Inserted";
         } catch (err) {
           console.log(err);
+          return err;
         }
       },
     },
