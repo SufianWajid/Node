@@ -17,7 +17,6 @@ module.exports.register = async (server) => {
           const userId = user.user;
 
           //   const { text } = request.payload;
-          console.log(userId);
 
           //   // execute the query
           const res = await db.getformheader.SQL(userId);
