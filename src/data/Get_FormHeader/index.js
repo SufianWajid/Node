@@ -7,7 +7,7 @@ const register = async ({ sql, getConnection }) => {
   // read in all the .sql files for this folder
   const sqlQueries = await utils.loadSqlQueries("Get_FormHeader");
 
-  const SQL = async (text) => {
+  const SQL = async (user) => {
     // Get a connection to SQL Server
     const cnx = await getConnection();
 
@@ -16,7 +16,7 @@ const register = async ({ sql, getConnection }) => {
 
     // configure sql query parameters
 
-    // request.input("currentUser", sql.VarChar(50), text);
+    request.input("user", sql.VarChar(50), user);
 
     // return the executed query
     return request.query(sqlQueries.Get_FormHeaderSQL);

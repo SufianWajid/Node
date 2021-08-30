@@ -1,7 +1,9 @@
-SELECT [ID]
+SELECT [id]
       ,[UserName]
       ,[Naming]
       ,[isActive]
       ,[dateCreated]
       ,[orderNumber]
-  FROM [ConcilConnectTest].[dbo].[FormHeader]
+      ,[SharedID]
+      ,[TableSize]
+  FROM [ConcilConnectTest].[dbo].[FormHeader] WHERE UserName = @user
