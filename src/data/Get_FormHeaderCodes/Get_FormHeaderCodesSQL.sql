@@ -1,0 +1,18 @@
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT [id]
+      ,[CodesS9]
+      ,[CodesS10]
+      ,[CodesSM]
+      ,[UserName]
+      ,[SuperUser]
+      ,[FormHeaderID]
+      ,[Notes]
+      ,[alert]
+      ,[orderNumber]
+      ,[CodeValue]
+      ,[dateUpdated]
+      ,[CustomName]
+      ,[category1]
+      ,[category2]
+      ,[Cod_fact]
+  FROM [ConcilConnectTest].[dbo].[FormHeaderCodes] WHERE FormHeaderID = @id

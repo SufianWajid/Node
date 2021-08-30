@@ -10,7 +10,7 @@ module.exports.register = async (server) => {
     method: "GET",
     path: "/",
     handler: async (request, h) => {
-      return "Concil Connect Mobile hapi server!";
+      return "Concil Connect Mobile hapi server Running!";
     },
   });
 };
