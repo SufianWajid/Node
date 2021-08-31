@@ -5,7 +5,7 @@ const utils = require("../utils");
 
 const register = async ({ sql, getConnection }) => {
   // read in all the .sql files for this folder
-  const sqlQueries = await utils.loadSqlQueries("Get_FormHeaderCodes");
+  const sqlQueries = await utils.loadSqlQueries("Delete_FormHeaderCodesSQL");
 
   const SQL = async (id) => {
     // Get a connection to SQL Server
@@ -18,7 +18,7 @@ const register = async ({ sql, getConnection }) => {
     request.input("id", sql.VarChar(50), id);
 
     // return the executed query
-    return request.query(sqlQueries.Get_FormHeaderCodesSQL);
+    return request.query(sqlQueries.Delete_FormHeaderCodesSQL);
   };
 
   return {
