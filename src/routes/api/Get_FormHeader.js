@@ -14,12 +14,12 @@ module.exports.register = async (server) => {
           //   // TODO: Get the current authenticate user's ID
           var user = request.query;
 
-          const user = user.user;
+          const userId = user.user;
 
           //   const { text } = request.payload;
 
           //   // execute the query
-          const res = await db.getformheader.SQL(user);
+          const res = await db.getformheader.SQL(userId);
 
           // return the recordset object
           return res.recordset;
