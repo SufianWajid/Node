@@ -15,7 +15,6 @@ const getformheader = require("./Get_FormHeader");
 const insertformheader = require("./Insert_FormHeader");
 const getformheaderId = require("./Get_FormHeader_Id");
 const getformheadercodes = require("./Get_FormHeaderCodes");
-const deleteformheadercode = require("./Delete_FormHeaderCode");
 
 const sql = require("mssql");
 
@@ -111,10 +110,6 @@ const client = async (server, config) => {
       getConnection,
     }),
     getformheadercodes: await getformheadercodes.register({
-      sql,
-      getConnection,
-    }),
-    deleteformheadercode: await deleteformheadercode.register({
       sql,
       getConnection,
     }),
