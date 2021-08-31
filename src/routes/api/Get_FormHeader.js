@@ -12,9 +12,9 @@ module.exports.register = async (server) => {
           const db = request.server.plugins.sql.client;
 
           //   // TODO: Get the current authenticate user's ID
-          var user = request.query;
+          var data = request.query;
 
-          const user = user.user;
+          const user = data.user;
 
           //   const { text } = request.payload;
 

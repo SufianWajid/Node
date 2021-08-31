@@ -15,7 +15,6 @@ const getformheader = require("./Get_FormHeader");
 const insertformheader = require("./Insert_FormHeader");
 const getformheaderId = require("./Get_FormHeader_Id");
 const getformheadercodesbyid = require("./Get_FormHeaderCodes");
-const deleteformheadercodebyid = require("./Delete_FormHeaderCodes");
 
 module.exports.register = async (server) => {
   await events.register(server);
@@ -33,5 +32,4 @@ module.exports.register = async (server) => {
   await insertformheader.register(server);
   await getformheaderId.register(server);
   await getformheadercodesbyid.register(server);
-  await deleteformheadercodebyid.register(server);
 };
