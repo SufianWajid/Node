@@ -15,4 +15,5 @@ SELECT [id]
       ,[category1]
       ,[category2]
       ,[Cod_fact]
+      ,[MeasurementType]
   FROM [ConcilConnectTest].[dbo].[FormHeaderCodes] WHERE FormHeaderID = @id
