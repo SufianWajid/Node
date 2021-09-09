@@ -15,6 +15,8 @@ const getformheader = require("./Get_FormHeader");
 const insertformheader = require("./Insert_FormHeader");
 const getformheaderId = require("./Get_FormHeader_Id");
 const getformheadercodes = require("./Get_FormHeaderCodes");
+const sendchat = require("./SendChat");
+const updatechat = require("./UpdateChat");
 
 const sql = require("mssql");
 
@@ -110,6 +112,14 @@ const client = async (server, config) => {
       getConnection,
     }),
     getformheadercodes: await getformheadercodes.register({
+      sql,
+      getConnection,
+    }),
+    sendchat: await sendchat.register({
+      sql,
+      getConnection,
+    }),
+    updatechat: await updatechat.register({
       sql,
       getConnection,
     }),
