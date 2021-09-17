@@ -22,6 +22,7 @@ const register = async ({ sql, getConnection }) => {
     request.input("useravatar", sql.VarChar(50), params.User_avatar);
     request.input("date", sql.VarChar(50), params.createdAt);
     request.input("id", sql.VarChar(50), params._id);
+    request.input("seconduser", sql.VarChar(50), params.SecondUser);
 
     // return the executed query
     return request.query(sqlQueries.SendChatSQL);
