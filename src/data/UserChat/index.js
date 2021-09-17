@@ -17,6 +17,7 @@ const register = async ({ sql, getConnection }) => {
     // configure sql query parameters
 
     request.input("keyword", sql.VarChar(50), params.keyword);
+    request.input("user", sql.VarChar(50), params.user);
 
     // return the executed query
     return request.query(sqlQueries.UserChatSQL);
