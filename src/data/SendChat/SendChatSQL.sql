@@ -3,7 +3,7 @@
   INSERT INTO ChatsData
     (id,UserName,UserId,Message,UserAvatar,createdAt,SecondUser)
 VALUES
-    (@id, @username, @userid, @text, @useravatar, @date,@seconduser);
+    (@id, LOWER(@username), LOWER(@userid), @text, @useravatar, @date,LOWER(@seconduser));
 
 -- SELECT  [id]
 --       ,[UserName]
