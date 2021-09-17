@@ -34,7 +34,7 @@ module.exports.register = async (server) => {
             User_avatar: params.User_avatar,
             createdAt: params.createdAt,
             _id: params._id,
-            SecondUser: SecondUser,
+            SecondUser: params.SecondUser,
           };
           //   // execute the query
           const res = await db.sendchat.SendChatSQL(setObject);
