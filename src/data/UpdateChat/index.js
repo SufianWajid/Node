@@ -16,7 +16,8 @@ const register = async ({ sql, getConnection }) => {
 
     // configure sql query parameters
 
-    // request.input("text", sql.VarChar(50), params.text);
+    request.input("user", sql.VarChar(50), params.User);
+    request.input("seconduser", sql.VarChar(50), params.SecondUser);
 
     // return the executed query
     return request.query(sqlQueries.UpdateChatSQL);
