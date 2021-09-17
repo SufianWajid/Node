@@ -17,6 +17,7 @@ const getformheaderId = require("./Get_FormHeader_Id");
 const getformheadercodesbyid = require("./Get_FormHeaderCodes");
 const chat_send = require("./Chat_Send");
 const chat_update = require("./Chat_Update");
+const chat_user = require("./Chat_User");
 
 module.exports.register = async (server) => {
   await events.register(server);
@@ -36,4 +37,5 @@ module.exports.register = async (server) => {
   await getformheadercodesbyid.register(server);
   await chat_send.register(server);
   await chat_update.register(server);
+  await chat_user.register(server);
 };

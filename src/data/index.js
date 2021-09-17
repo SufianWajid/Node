@@ -17,6 +17,7 @@ const getformheaderId = require("./Get_FormHeader_Id");
 const getformheadercodes = require("./Get_FormHeaderCodes");
 const sendchat = require("./SendChat");
 const updatechat = require("./UpdateChat");
+const userchat = require("./UserChat");
 
 const sql = require("mssql");
 
@@ -120,6 +121,10 @@ const client = async (server, config) => {
       getConnection,
     }),
     updatechat: await updatechat.register({
+      sql,
+      getConnection,
+    }),
+    userchat: await userchat.register({
       sql,
       getConnection,
     }),
