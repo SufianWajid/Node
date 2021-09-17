@@ -17,7 +17,7 @@ module.exports.register = async (server) => {
           //   const { text } = request.payload;
 
           //   // execute the query
-          const res = await db.updatechat.UpdateChatSQL();
+          const res = await db.updatechat.UpdateChatSQL(params);
 
           var result = [];
 
