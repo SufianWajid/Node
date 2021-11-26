@@ -6,4 +6,6 @@ SELECT [id]
       ,[orderNumber]
       ,[SharedID]
       ,[TableSize]
+            ,[Hashtag]
+
   FROM [ConcilConnectTest].[dbo].[FormHeader] WHERE UserName = @user
